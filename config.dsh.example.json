@@ -1,0 +1,26 @@
+{
+  "database_url": "sqlite+aiosqlite:///./data/loopgraph-dsh.db",
+  "host": "127.0.0.1",
+  "port": 8080,
+  "max_concurrency": 2,
+  "harnesses": [
+    {
+      "type": "dsh",
+      "name": "dsh-executor",
+      "sdk_config": {
+        "provider": "deepseek-official",
+        "model": "deepseek-v4-flash",
+        "cwd": ".",
+        "session_root": "./data/dsh-sessions"
+      }
+    }
+  ],
+  "graders": [
+    {
+      "type": "script",
+      "id": "business-goal",
+      "argv": ["python3", "examples/business_goal_grader.py"],
+      "timeout_seconds": 10
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+services:
+  supervisor:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - loopgraph-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  loopgraph-data:

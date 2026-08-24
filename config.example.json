@@ -1,0 +1,22 @@
+{
+  "database_url": "sqlite+aiosqlite:///./data/loopgraph.db",
+  "host": "127.0.0.1",
+  "port": 8080,
+  "max_concurrency": 4,
+  "harnesses": [
+    {
+      "type": "command",
+      "name": "example-command-agent",
+      "argv": ["python3", "examples/command_agent.py"],
+      "max_output_bytes": 1048576
+    }
+  ],
+  "graders": [
+    {
+      "type": "script",
+      "id": "business-goal",
+      "argv": ["python3", "examples/business_goal_grader.py"],
+      "timeout_seconds": 10
+    }
+  ]
+}
